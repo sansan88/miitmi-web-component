@@ -138,10 +138,8 @@ export class MiitmiWebComponent {
   render() {
     return (
       <Host>
-        <slot></slot>
-        <button class="share"  onClick={() => this.share()}>{ this.invite }</button>
-        <slot></slot>
-        <button class="video"   onClick={() => this.clickVideoChat()}> { this.video  }</button>
+        <button class="share" aria-label={this.invite} onClick={() => this.share()}>{ this.invite }</button>
+        <button class="video" aria-labeel={this.video}  onClick={() => this.clickVideoChat()}> { this.video  }</button>
 
         <web-social-share show={false}>
           <ion-icon name="logo-twitter" slot="twitter" style={{color: '#00aced', 'font-size': '1.6rem', display: 'block'}}></ion-icon>
@@ -157,17 +155,3 @@ export class MiitmiWebComponent {
     );
   }
 }
-
-
-/*        <web-social-share show="true" style="--web-social-share-height: 140px; --web-social-share-target-width: 6rem;">
-            <i class="fab fa-facebook" slot="facebook" ></i>
-            <i class="fab fa-twitter" slot="twitter" ></i>
-
-            <i class="fab fa-linkedin" slot="linkedin" ></i>
-
-            <i class="fas fa-envelope" slot="email" ></i>
-            <i class="fab fa-whatsapp-square" slot="whatsapp" ></i>
-
-            <i class="far fa-copy" slot="copy" ></i>
-        </web-social-share>
-*/
