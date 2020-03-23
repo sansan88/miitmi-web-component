@@ -4,7 +4,7 @@ import {
   Host,
   h,
   State,
-  Element
+  Element, getAssetPath
 } from '@stencil/core';
 
 import 'web-social-share';
@@ -12,7 +12,8 @@ import 'web-social-share';
 @Component({
   tag: 'miitmi-web-component',
   styleUrl: 'miitmi-web-component.css',
-  shadow: true
+  shadow: true,
+  assetsDirs: ['assets']
 })
 export class MiitmiWebComponent {
   @Element() el: HTMLElement;
@@ -142,12 +143,12 @@ export class MiitmiWebComponent {
         <button class="video" aria-labeel={this.video}  onClick={() => this.clickVideoChat()}> { this.video  }</button>
 
         <web-social-share show={false}>
-          <ion-icon name="logo-twitter" slot="twitter" style={{color: '#00aced', 'font-size': '1.6rem', display: 'block'}}></ion-icon>
-          <ion-icon name="logo-linkedin" slot="linkedin" style={{color: '#0077b5', 'font-size': '1.6rem', display: 'block'}}></ion-icon>
-          <ion-icon name="mail-outline" slot="email" style={{color: 'var(--ion-color-tertiary)', 'font-size': '1.6rem', display: 'block'}}></ion-icon>
-          <ion-icon name="logo-whatsapp" slot="whatsapp" style={{color: '#25D366', 'font-size': '1.6rem', display: 'block'}}></ion-icon>
-          <ion-icon name="copy-outline" slot="copy" style={{'font-size': '1.6rem', display: 'block'}}></ion-icon>
-          <ion-icon name="logo-hackernews" slot="hackernews" style={{color: '#ff6000', 'font-size': '1.6rem', display: 'block'}}></ion-icon>
+          <img src={getAssetPath(`./assets/logo-twitter.svg`)} slot="twitter" style={{color: '#00aced', 'width': '1.6rem', display: 'block'}}/>
+          <img src={getAssetPath(`./assets/logo-linkedin.svg`)} slot="linkedin" style={{color: '#0077b5', 'width': '1.6rem', display: 'block'}}/>
+          <img src={getAssetPath(`./assets/mail-outline.svg`)} slot="email" style={{color: 'var(--ion-color-tertiary)', 'width': '1.6rem', display: 'block'}}/>
+          <img src={getAssetPath(`./assets/logo-whatsapp.svg`)} slot="whatsapp" style={{color: '#25D366', 'width': '1.6rem', display: 'block'}}/>
+          <img src={getAssetPath(`./assets/copy-outline.svg`)} slot="copy" style={{'width': '1.6rem', display: 'block'}}/>
+          <img src={getAssetPath(`./assets/logo-hackernews.svg`)} slot="hackernews" style={{color: '#ff6000', 'width': '1.6rem', display: 'block'}}/>
         </web-social-share>
 
       </Host>
