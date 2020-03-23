@@ -1,6 +1,6 @@
 {
   "name": "miitmi-web-component",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "miitmi web component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -25,11 +25,7 @@
     "@stencil/core": "^1.11.0"
   },
   "license": "MIT",
-  "outputTargets": [
-    {
-      "type": "dist"
-    }
-  ],
+
   "dependencies": {
     "web-social-share": "^6.4.0"
   },

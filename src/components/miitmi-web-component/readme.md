@@ -15,7 +15,6 @@
 
 ## Dependencies
 
-
 ### Depends on
 
 - web-social-share
