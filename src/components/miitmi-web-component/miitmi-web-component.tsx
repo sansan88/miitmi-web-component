@@ -3,18 +3,20 @@ import {
   Prop,
   Host,
   h,
-  State
+  State,
+  Element, getAssetPath
 } from '@stencil/core';
 
-import { Plugins } from '@capacitor/core';
-const { Share, Browser } = Plugins;
+import 'web-social-share';
 
 @Component({
   tag: 'miitmi-web-component',
   styleUrl: 'miitmi-web-component.css',
-  //shadow: true,
+  shadow: true,
+  assetsDirs: ['assets']
 })
 export class MiitmiWebComponent {
+  @Element() el: HTMLElement;
 
   @Prop() invite: string;
 
@@ -49,54 +51,103 @@ export class MiitmiWebComponent {
     });
   }
 
+  private async share(): Promise<void> {
+    // @ts-ignore
+    if (navigator && navigator.share) {
+      await this.shareMobile();
+    } else {
+      await this.shareDesktop();
+    }
+  }
 
-  private clickShare(): void{
-    
-    Share.share({
-        title:  this.shareData.titel ,
-        text: this.shareData.text,
-        url: this.shareData.url,
-        dialogTitle: 'Share with buddies'
-      }).then(share=>{
-        
-      }).catch(error=>{
-        console.log("error");
+  private async shareMobile() {
+    const text: string = this.shareData.titel;
+    const publishedUrl: string = this.shareData.url;
 
-        //TODO: web-social-share
+    // @ts-ignore
+    await navigator.share({
+      text: text,
+      url: publishedUrl
+    });
+  }
 
-      });
+  private shareDesktop() {
+    return new Promise(async (resolve) => {
+      const webSocialShare = this.el.shadowRoot.querySelector('web-social-share');
+
+      if (!webSocialShare || !window) {
+        return;
+      }
+
+      const publishedUrl: string = this.shareData.url;
+
+      const shareOptions = {
+        displayNames: true,
+        config: [
+          {
+            twitter: {
+              socialShareUrl: publishedUrl,
+              socialSharePopupWidth: 300,
+              socialSharePopupHeight: 400
+            }
+          },
+          {
+            linkedin: {
+              socialShareUrl: publishedUrl
+            }
+          },
+          {
+            email: {
+              socialShareBody: publishedUrl
+            }
+          },
+          {
+            whatsapp: {
+              socialShareUrl: publishedUrl
+            }
+          },
+          {
+            copy: {
+              socialShareUrl: publishedUrl
+            }
+          },
+          {
+            hackernews: {
+              socialShareUrl: publishedUrl
+            }
+          }
+        ]
+      };
+
+      webSocialShare.share = shareOptions;
+
+      webSocialShare.show = true;
+
+      resolve();
+    });
   }
 
   private clickVideoChat(): void{
-      Browser.open({ url: this.shareData.url, });
+      window.open(this.shareData.url);
   }
 
   render() {
     return (
       <Host>
-        <slot></slot>
-        <button class="share"  onClick={() => this.clickShare()}>{ this.invite }</button> 
-        <slot></slot>
-        <button class="video"   onClick={() => this.clickVideoChat()}> { this.video  }</button>
+        <button class="share" aria-label={this.invite} onClick={() => this.share()}>{ this.invite }</button>
+        <button class="video" aria-labeel={this.video}  onClick={() => this.clickVideoChat()}> { this.video  }</button>
 
-        
+        <web-social-share show={false}>
+          <img alt="Twitter" src={getAssetPath(`./assets/logo-twitter.svg`)} slot="twitter" style={{'width': '1.6rem', display: 'block'}}/>
+          <img alt="Linkedin" src={getAssetPath(`./assets/logo-linkedin.svg`)} slot="linkedin" style={{'width': '1.6rem', display: 'block'}}/>
+          <img alt="Mail" src={getAssetPath(`./assets/mail-outline.svg`)} slot="email" style={{'width': '1.6rem', display: 'block'}}/>
+          <img alt="Whatsapp" src={getAssetPath(`./assets/logo-whatsapp.svg`)} slot="whatsapp" style={{'width': '1.6rem', display: 'block'}}/>
+          <img alt="Copy" src={getAssetPath(`./assets/copy-outline.svg`)} slot="copy" style={{'width': '1.6rem', display: 'block'}}/>
+          <img alt="Hackernews" src={getAssetPath(`./assets/logo-hackernews.svg`)} slot="hackernews" style={{'width': '1.6rem', display: 'block'}}/>
+        </web-social-share>
 
       </Host>
 
     );
   }
 }
-
-
-/*        <web-social-share show="true" style="--web-social-share-height: 140px; --web-social-share-target-width: 6rem;">
-            <i class="fab fa-facebook" slot="facebook" ></i>
-            <i class="fab fa-twitter" slot="twitter" ></i>
-            
-            <i class="fab fa-linkedin" slot="linkedin" ></i>
-            
-            <i class="fas fa-envelope" slot="email" ></i>
-            <i class="fab fa-whatsapp-square" slot="whatsapp" ></i>
-            
-            <i class="far fa-copy" slot="copy" ></i>
-        </web-social-share>
-*/
