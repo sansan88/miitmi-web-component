@@ -29,5 +29,10 @@
     {
       "type": "dist"
     }
-  ]
+  ],
+  "dependencies": {
+    "@capacitor/cli": "^1.5.1",
+    "@capacitor/core": "^1.5.1",
+    "web-social-share": "^6.4.0"
+  }
 }

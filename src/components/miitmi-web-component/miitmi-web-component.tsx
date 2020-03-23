@@ -6,6 +6,8 @@ import {
   State
 } from '@stencil/core';
 
+import { Plugins } from '@capacitor/core';
+const { Share, Browser } = Plugins;
 
 @Component({
   tag: 'miitmi-web-component',
@@ -49,27 +51,47 @@ export class MiitmiWebComponent {
 
 
   private clickShare(): void{
-    console.log("clickShare");
-    navigator["share"](this.shareData );
-  }
+    
+    Share.share({
+        title:  this.shareData.titel ,
+        text: this.shareData.text,
+        url: this.shareData.url,
+        dialogTitle: 'Share with buddies'
+      }).then(share=>{
+        
+      }).catch(error=>{
+        console.log("error");
 
+        //TODO: web-social-share
+
+      });
+  }
 
   private clickVideoChat(): void{
-      console.log("clickVideoChat");
-      location.href = this.videoChatUrl;
-
+      Browser.open({ url: this.shareData.url, });
   }
 
-
   render() {
-
     return (
-
       <Host>
         <slot></slot>
         <button class="share"  onClick={() => this.clickShare()}>{ this.invite }</button> 
         <slot></slot>
-        <button class="video"   onClick={() => this.clickVideoChat()}> { this.video  }</button> 
+        <button class="video"   onClick={() => this.clickVideoChat()}> { this.video  }</button>
+        
+        <web-social-share show="true" style="--web-social-share-height: 140px; --web-social-share-target-width: 6rem;">
+            <i class="fab fa-facebook" slot="facebook" ></i>
+            <i class="fab fa-twitter" slot="twitter" ></i>
+            
+            <i class="fab fa-linkedin" slot="linkedin" ></i>
+            
+            <i class="fas fa-envelope" slot="email" ></i>
+            <i class="fab fa-whatsapp-square" slot="whatsapp" ></i>
+            
+            <i class="far fa-copy" slot="copy" ></i>
+        </web-social-share>
+
+
       </Host>
 
     );
