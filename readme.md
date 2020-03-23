@@ -2,6 +2,11 @@
 
 # miitmi.ch
 
+## Github Repository
+```bash
+git clone https://github.com/sansan88/miitmi-web-component.git
+```
+
 ## Using meetmi in a framework
 
 ```bash
@@ -12,7 +17,7 @@ npm i miitmi-web-component
 
 - Put a script tag similar to this 
 ```bash 
-<script src='https://unpkg.com/miitmi-web-component@0.0.3/dist/miitmi-web-component.js'></script> 
+<script src='https://unpkg.com/miitmi-web-component@0.0.4/dist/miitmi-web-component.js'></script> 
 ```
 in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc.
@@ -39,7 +44,7 @@ Put a script tag similar to this ```bash <script src='node_modules/miitmi-web-co
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>miitmi web component</title>
   
-  <script src='https://unpkg.com/miitmi-web-component@0.0.3/dist/miitmi-web-component.js'></script>
+  <script src='https://unpkg.com/miitmi-web-component@0.0.4/dist/miitmi-web-component.js'></script>
 </head>
 <body>
 
