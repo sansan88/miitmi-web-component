@@ -22,7 +22,7 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@stencil/core": "^1.8.8"
+    "@stencil/core": "^1.11.0"
   },
   "license": "MIT",
   "outputTargets": [
@@ -31,8 +31,14 @@
     }
   ],
   "dependencies": {
-    "@capacitor/cli": "^1.5.1",
-    "@capacitor/core": "^1.5.1",
     "web-social-share": "^6.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sansan88/miitmi-web-component.git"
+  },
+  "homepage": "https://miitmi.ch",
+  "bugs": {
+    "url": "https://github.com/sansan88/miitmi-web-component"
   }
 }
