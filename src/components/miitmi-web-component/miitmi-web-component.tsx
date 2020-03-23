@@ -9,6 +9,8 @@ import {
 import { Plugins } from '@capacitor/core';
 const { Share, Browser } = Plugins;
 
+import { WebSocialShare } from '../../../node_modules/web-social-share/dist/loader/index'
+
 @Component({
   tag: 'miitmi-web-component',
   styleUrl: 'miitmi-web-component.css',
@@ -27,9 +29,13 @@ export class MiitmiWebComponent {
 
 
   async componentWillLoad() {
+  // TODO  Interface bauen.. 
+
+    /* STATES */
     this.videoChatUrl = await this.getRandomChatUrl();
     this.shareText = "👋 treffe mich mit miitmii!";
     this.titel = "miitmi";
+
 
     this.shareData = {
       title: this.titel,
@@ -79,7 +85,7 @@ export class MiitmiWebComponent {
         <slot></slot>
         <button class="video"   onClick={() => this.clickVideoChat()}> { this.video  }</button>
 
-        
+        <WebSocialShare show="true"></WebSocialShare>
 
       </Host>
 
