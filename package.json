@@ -1,6 +1,6 @@
 {
   "name": "miitmi-web-component",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "miitmi web component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
