@@ -78,8 +78,17 @@ export class MiitmiWebComponent {
         <button class="share"  onClick={() => this.clickShare()}>{ this.invite }</button> 
         <slot></slot>
         <button class="video"   onClick={() => this.clickVideoChat()}> { this.video  }</button>
+
         
-        <web-social-share show="true" style="--web-social-share-height: 140px; --web-social-share-target-width: 6rem;">
+
+      </Host>
+
+    );
+  }
+}
+
+
+/*        <web-social-share show="true" style="--web-social-share-height: 140px; --web-social-share-target-width: 6rem;">
             <i class="fab fa-facebook" slot="facebook" ></i>
             <i class="fab fa-twitter" slot="twitter" ></i>
             
@@ -90,10 +99,4 @@ export class MiitmiWebComponent {
             
             <i class="far fa-copy" slot="copy" ></i>
         </web-social-share>
-
-
-      </Host>
-
-    );
-  }
-}
+*/
