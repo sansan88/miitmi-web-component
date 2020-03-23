@@ -12,7 +12,7 @@ import 'web-social-share';
 @Component({
   tag: 'miitmi-web-component',
   styleUrl: 'miitmi-web-component.css',
-  //shadow: true,
+  shadow: true
 })
 export class MiitmiWebComponent {
   @Element() el: HTMLElement;
@@ -72,7 +72,7 @@ export class MiitmiWebComponent {
 
   private shareDesktop() {
     return new Promise(async (resolve) => {
-      const webSocialShare = this.el.querySelector('web-social-share');
+      const webSocialShare = this.el.shadowRoot.querySelector('web-social-share');
 
       if (!webSocialShare || !window) {
         return;
