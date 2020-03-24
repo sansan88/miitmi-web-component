@@ -20,9 +20,9 @@ button {
 }
 
 .share {
-  background-color: #3880ff;
+  background-image: linear-gradient(to right, #EE2A24 , #F1592A);
 }
 
 .video{
-  background-color: #3dc2ff;
+  background-image: linear-gradient(to right, #F1592A , #EE2A24);
 }

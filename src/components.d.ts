@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MiitmiWebComponent {
+        "chatname": string;
         "invite": string;
         "video": string;
     }
@@ -24,6 +25,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MiitmiWebComponent {
+        "chatname"?: string;
         "invite"?: string;
         "video"?: string;
     }

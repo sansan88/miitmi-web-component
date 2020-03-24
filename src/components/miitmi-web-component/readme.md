@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `invite` | `invite`  |             | `string` | `undefined` |
-| `video`  | `video`   |             | `string` | `undefined` |
+| Property   | Attribute  | Description | Type     | Default     |
+| ---------- | ---------- | ----------- | -------- | ----------- |
+| `chatname` | `chatname` |             | `string` | `undefined` |
+| `invite`   | `invite`   |             | `string` | `undefined` |
+| `video`    | `video`    |             | `string` | `undefined` |
 
 
 ## Dependencies

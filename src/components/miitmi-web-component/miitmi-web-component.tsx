@@ -19,8 +19,8 @@ export class MiitmiWebComponent {
   @Element() el: HTMLElement;
 
   @Prop() invite: string;
-
   @Prop() video: string;
+  @Prop() chatname: string;
 
   @State() videoChatUrl: string;
   @State() shareText: string;
@@ -32,10 +32,14 @@ export class MiitmiWebComponent {
   // TODO  Interface bauen.. 
 
     /* STATES */
-    this.videoChatUrl = await this.getRandomChatUrl();
+    if (this.chatname){
+      this.videoChatUrl = "https://meet.jit.si/" + this.chatname;
+    }else{
+      this.videoChatUrl = await this.getRandomChatUrl();
+    }
+
     this.shareText = "👋 treffe mich mit miitmii!";
     this.titel = "miitmi";
-
 
     this.shareData = {
       title: this.titel,
@@ -47,7 +51,6 @@ export class MiitmiWebComponent {
 
   private getRandomChatUrl(): Promise < string > {
     return new Promise < string > (async (resolve) => {
-
       let random = Math.random().toString(36).substring(2);
       let url =  "https://meet.jit.si/miitmi-";
 
