@@ -44,11 +44,17 @@ Put a script tag similar to this ```bash <script src='node_modules/miitmi-web-co
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>miitmi web component</title>
   
-  <script src='https://unpkg.com/miitmi-web-component@0.0.4/dist/miitmi-web-component.js'></script>
+  <script src='https://unpkg.com/miitmi-web-component@1.1.3/dist/miitmi-web-component.js'></script>
 </head>
 <body>
 
-  <miitmi-web-component invite="einladen" video="starten"></miitmi-web-component>
+  <h2>Standalone Example</h2>
+ 
+  <miitmi-web-component invite="EINLADEN" video="VIDEOCHAT STARTEN"></miitmi-web-component>
+
+  <br><br>
+  <h2><a href="https://www.screen-beer.ch/">Screen Beer | You'll never drink alone.</a></h2>
+  <miitmi-web-component chatname="ScreenBeer-Saftladen" invite="Saftladen teilen" video="Los geht's"></miitmi-web-component>
 
 </body>
 </html>
