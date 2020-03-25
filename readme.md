@@ -17,7 +17,7 @@ npm i miitmi-web-component
 
 - Put a script tag similar to this 
 ```bash 
-<script src='https://unpkg.com/miitmi-web-component@1.2.0/dist/miitmi-web-component.js'></script> 
+<script src='https://unpkg.com/miitmi-web-component@1.2.1/dist/miitmi-web-component.js'></script> 
 ```
 in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc.
@@ -34,6 +34,22 @@ Put a script tag similar to this ```bash <script src='node_modules/miitmi-web-co
 - Then you can use the element anywhere in your template, JSX, html etc.
 
 
+### CSS Variables
+
+```css
+:root {
+    --miitmi-btn-share-color-left: #EE2A24ff;
+    --miitmi-btn-share-color-right: #F1592A;
+
+    --miitmi-btn-video-color-left: #F1592A;
+    --miitmi-btn-video-color-right: #EE2A24ff;
+    
+    --miitmi-btn-color: #FFFFFF;
+    
+    --miitmi-font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  ```
+
 # Demo Website
 
 ```html
@@ -44,7 +60,7 @@ Put a script tag similar to this ```bash <script src='node_modules/miitmi-web-co
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>miitmi web component</title>
   
-  <script src='https://unpkg.com/miitmi-web-component@1.2.0/dist/miitmi-web-component.js'></script>
+  <script src='https://unpkg.com/miitmi-web-component@1.2.1/dist/miitmi-web-component.js'></script>
 </head>
 <body>
 
