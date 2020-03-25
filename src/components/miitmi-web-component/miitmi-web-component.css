@@ -1,8 +1,6 @@
 :host {
   display: block;
 
-
-
 }
 
 button {
@@ -11,18 +9,20 @@ button {
   border: none;
   border-radius: 4px;
   
-  color: #FFFFFF;
+  color: var(--miitmi-btn-color);
   font-size: 14px;
   font-weight: 500;
   
+  font-family: var(--miitmi-font-family);
+
   margin: 5px;
   padding: 10px;
 }
 
 .share {
-  background-image: linear-gradient(to right, #EE2A24 , #F1592A);
+  background-image: linear-gradient(to right,var(--miitmi-btn-share-color-left) ,var(--miitmi-btn-share-color-right));
 }
 
 .video{
-  background-image: linear-gradient(to right, #F1592A , #EE2A24);
+  background-image: linear-gradient(to right,var(--miitmi-btn-video-color-left) ,var(--miitmi-btn-video-color-right));
 }

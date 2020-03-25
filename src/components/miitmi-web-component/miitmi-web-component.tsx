@@ -13,7 +13,7 @@ import 'web-social-share';
   tag: 'miitmi-web-component',
   styleUrl: 'miitmi-web-component.css',
   shadow: true,
-  assetsDirs: ['assets']
+  //assetsDirs: ['assets']
 })
 export class MiitmiWebComponent {
   @Element() el: HTMLElement;
