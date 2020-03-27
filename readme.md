@@ -2,7 +2,12 @@
 
 # miitmi.ch
 
-## Github Repository
+## Github Repository App
+```bash
+git clone https://github.com/sansan88/miitmi.git
+```
+
+## Github Repository Web Component
 ```bash
 git clone https://github.com/sansan88/miitmi-web-component.git
 ```
@@ -23,14 +28,28 @@ in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc.
 
 ### Node Modules
-- Run ```bash npm install my-name --save ```
-Put a script tag similar to this ```bash <script src='node_modules/miitmi-web-component/dist/miitmi-web-component.js'></script> ``` in the head of your index.html
+- Run 
+```bash 
+npm install my-name --save 
+```
+
+- Put a script tag similar to this, in the head of your index.html
+```bash 
+<script src='node_modules/miitmi-web-component/dist/miitmi-web-component.js'></script> 
+``` 
+
 - Then you can use the element anywhere in your template, JSX, html etc.
 
 
 ### In a stencil-app-starter app
-- Run ```bash npm install my-name --save ```
-- Add an import to the npm packages: ```bash import miitmit-web-component; ```
+- Run
+ ```bash
+  npm install my-name --save 
+```
+- Add an import to the npm packages: 
+```bash
+ import miitmit-web-component; 
+ ```
 - Then you can use the element anywhere in your template, JSX, html etc.
 
 
